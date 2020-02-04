@@ -49,11 +49,10 @@ const add = async (req, res, next) => {
             const newMatrix = await query.get(word);
             newMatrix.push(0, 0)
             await query.set(word, newMatrix);
-            console.log(word, newMatrix)
         });
     }
 
-    keysToChange.forEach(async word => await query.set(word, matrix))
+    keysToChange.forEach(async key => await query.set(key, matrix))
 
     res.status(200).send('OK!')
 }
