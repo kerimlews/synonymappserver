@@ -2,10 +2,10 @@
 const redis = require('async-redis');
 
 const client = redis.createClient({
-    host: "redis-17947.c100.us-east-1-4.ec2.cloud.redislabs.com",
-    port: "17947"
+    host: "redis-10506.c52.us-east-1-4.ec2.cloud.redislabs.com",
+    port: "10506"
 });
-client.auth('eEaZyZGtjHkBri7lxwz0Ew5gXWH98tO6');
+client.auth('fbQd1CwlHarHlaPuqm7tuAOYA74501FK');
 
 const hash = 'synonymsappdatabase';
 

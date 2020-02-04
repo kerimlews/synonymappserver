@@ -8,10 +8,10 @@ const path = require('path');
 const service = require('./utils/service');
 
 // port 
-const port = process.env.PORT || 3000
-const index = path.resolve(__dirname, '../', 'index.html')
+const port = process.env.PORT || 3000;
+const index = path.resolve(__dirname, '../', 'index.html');
 // app
-const app = express()
+const app = express();
 
 // extensions
 app.use(express.static(path.join(__dirname)))
