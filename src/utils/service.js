@@ -57,8 +57,8 @@ const add = async (req, res, next) => {
     }
 
     keysToChange.forEach(async key => await query.set(key, matrix));
-    const values = await query.values()
-    res.status(200).send({ keysToChange, matrix, values })
+
+    res.status(200).send({ keysToChange, matrix })
 }
 
 const search = async (req, res, next) => {
