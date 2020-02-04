@@ -12,7 +12,7 @@ const index = path.resolve(__dirname, '../', 'index.html')
 const app = express()
 
 // extensions
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname)))
 app.use(cors())
 app.use(compression()); //Compress all routes
 app.use(bodyParser.json())
