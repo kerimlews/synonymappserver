@@ -723,6 +723,14 @@ array-flatten@1.1.1:
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
   integrity sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
 
+async-redis@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/async-redis/-/async-redis-1.1.7.tgz#d9e236afa594bdc7b6e00f5b03f1d2304c017d50"
+  integrity sha512-phpZe2/U+Ih4Lpy72KWF4+c8gymsUgzg6NV/TZUb8BLNn7soQewFxqcq9nndobfPmzXiuhMLi6GNBiQVIor/EA==
+  dependencies:
+    redis "^2.8.0"
+    redis-commands "^1.3.1"
+
 babel-plugin-dynamic-import-node@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.0.tgz#f00f507bdaa3c3e3ff6e7e5e98d90a7acab96f7f"
@@ -1636,7 +1644,7 @@ readdirp@~3.3.0:
   dependencies:
     picomatch "^2.0.7"
 
-redis-commands@^1.2.0:
+redis-commands@^1.2.0, redis-commands@^1.3.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.5.0.tgz#80d2e20698fe688f227127ff9e5164a7dd17e785"
   integrity sha512-6KxamqpZ468MeQC3bkWmCB1fp56XL64D4Kf0zJSwDZbVLLm7KFkoIcHrgRvQ+sk8dnhySs7+yBg94yIkAK7aJg==
