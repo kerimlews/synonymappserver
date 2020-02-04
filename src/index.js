@@ -1,7 +1,9 @@
+require("@babel/polyfill");
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-var compression = require('compression');
+const compression = require('compression');
 const path = require('path');
 const service = require('./utils/service');
 

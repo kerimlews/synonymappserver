@@ -7,7 +7,7 @@ const client = redis.createClient({
 });
 client.auth('eEaZyZGtjHkBri7lxwz0Ew5gXWH98tO6');
 
-const hash = 'synonymsappdb';
+const hash = 'synonymsappdatabase';
 
 async function get(value) {
     const fieldValue = await client.hget(hash, value);
@@ -31,9 +31,12 @@ async function keys() {
 async function length() {
     return await client.hlen(hash);
 }
+async function values() {
+    return await client.hvals(hash);
+}
 
 const query = {
-    get, exists, set, keys, length
+    get, exists, set, keys, length, values
 }
 
 module.exports = query; 
