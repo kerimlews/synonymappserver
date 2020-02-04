@@ -6,7 +6,7 @@ const path = require('path');
 const service = require('./utils/service');
 
 // port 
-const port = 3000
+const port = process.env.PORT || 3000
 const index = path.resolve(__dirname, '../', 'index.html')
 // app
 const app = express()
