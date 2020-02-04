@@ -46,26 +46,28 @@ const add = async (req, res, next) => {
 
         // update others
         words.forEach(async word => {
-            const newMatrix = await get(word);
+            const newMatrix = await query.get(word);
             newMatrix.push(0, 0)
-            await set(word, newMatrix);
+            await query.set(word, newMatrix);
+            console.log(word, newMatrix)
         });
     }
 
     keysToChange.forEach(async word => await query.set(word, matrix))
 
-    res.status(200).send({keysToChange, matrix})
+    res.status(200).send('OK!')
 }
 
 const search = async (req, res, next) => {
     const { word } = req.params;
     let result = []; 
     const words = await query.keys();
-    const matrix = await query.get(word);
+    const wordExists = await query.exists(word);
+    const matrix = wordExists ? await query.get(word): [];
     
     result = matrix
         .map((num, index) => num === 1 && words[index])
-        .filter(num => num)
+        .filter(num => num && num !== word);
 
     // response
     res.status(200).send(result);
