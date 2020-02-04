@@ -2,7 +2,9 @@
 const query = require('./query');
 
 const add = async (req, res, next) => {
-    const { word, synonym } = req.body
+    const body = req.body;
+    const word = body.word.toLowerCase().trim();
+    const synonym = body.synonym.toLowerCase().trim();
     const wordExists = await query.exists(word) === 1;
     const synonymExists = await query.exists(synonym) === 1;
     const keys = await query.keys();
@@ -50,17 +52,17 @@ const add = async (req, res, next) => {
         otherKeys.forEach(async word => {
             let newMatrix = await query.get(word);
             newMatrix = [...newMatrix, ...updateValues];
-            await query.set(word, newMatrix);
+            await query.set(word.toLowerCase().trim(), newMatrix);
         });
     }
 
     keysToChange.forEach(async key => await query.set(key, matrix));
-
-    res.status(200).send({ keysToChange, matrix })
+    const values = await query.values()
+    res.status(200).send({ keysToChange, matrix, values })
 }
 
 const search = async (req, res, next) => {
-    const { word } = req.params;
+    const word = req.params.word.toLowerCase().trim();
     let result = []; 
     const words = await query.keys();
     const wordExists = await query.exists(word);
@@ -83,7 +85,7 @@ const translateMatrixToIndexes = matrix => matrix
     .filter(num => num)
 
 const translateMatrixToWords = (matrix, keys) => matrix
-    .map((num, index) => num === 1 && keys[index])
+    .map((num, index) => num === 1 && keys[index].toLowerCase().trim())
     .filter(num => num)
 
 // export

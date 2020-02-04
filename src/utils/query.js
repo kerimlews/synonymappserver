@@ -7,7 +7,7 @@ const client = redis.createClient({
 });
 client.auth('fbQd1CwlHarHlaPuqm7tuAOYA74501FK');
 
-const hash = 'synonymsappdatabase';
+const hash = 'synonymsappdatabase2';
 
 async function get(value) {
     const fieldValue = await client.hget(hash, value);
